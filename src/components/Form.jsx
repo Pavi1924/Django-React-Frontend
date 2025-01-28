@@ -27,7 +27,7 @@ function Form({route, method}) {
             } else {
                 navigate("/login")
             }
-         }
+        }
         catch (error) {
             alert(error)
         } finally {
@@ -46,7 +46,6 @@ function Form({route, method}) {
         placeholder="Username"
         />
         <input 
-        
         className="form-input"
         type="password"
         value={password}
@@ -57,6 +56,12 @@ function Form({route, method}) {
         <button className="form-button" type="submit">
             {name}
         </button>
+        <div>
+            {method === "login" ? "Don't have an account?" : "Already have an account?"}
+            <span onClick={() => navigate(method === "login" ? "/register" : "/login")}>
+                {method === "login" ? "Register" : "Login"}
+            </span>
+        </div>
     </form>
 );
 
