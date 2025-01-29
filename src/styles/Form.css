@@ -34,3 +34,24 @@
   .form-button:hover {
     background-color: #0056b3;
   }
+
+  .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .password-input {
+    width: 100%;
+    padding-right: 40px; /* Adjust padding to make space for the icon */
+  }
+
+  .password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }

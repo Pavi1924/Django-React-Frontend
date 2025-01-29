@@ -49,7 +49,7 @@ function Form({route, method}) {
         />
         <div className="password-container">
             <input 
-            className="form-input"
+            className="form-input password-input"
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
