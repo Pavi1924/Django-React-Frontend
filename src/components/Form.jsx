@@ -4,12 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import "../styles/Form.css"
 import LoadingIndicator from "./Loadingindicator";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 function Form({route, method}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     const name = method ==="login" ? "login": "Register";
@@ -45,13 +47,18 @@ function Form({route, method}) {
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Username"
         />
-        <input 
-        className="form-input"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        />
+        <div className="password-container">
+            <input 
+            className="form-input"
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            />
+            <span onClick={() => setShowPassword(!showPassword)} className="password-toggle-icon">
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+        </div>
         {loading && <LoadingIndicator />}
         <button className="form-button" type="submit">
             {name}
